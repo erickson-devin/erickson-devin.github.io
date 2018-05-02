@@ -7,12 +7,12 @@ body {
     margin: auto;
     font-size: 16px;
     line-height: 32px;
-    font-family: georgia;
+    font-family: "Lucida Console", Monaco, Monospace;
     color: #666666;
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     text-align: center;
 }
 
