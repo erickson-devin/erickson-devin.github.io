@@ -20,7 +20,7 @@ div #main {
   display:flex;
   flex-direction: column;
 }
-div #content {
+div #outline {
   display: flex;
   flex-direction: column;
 }
@@ -41,8 +41,8 @@ header{
 }
 header, footer, footer a {
     text-align: center;
-    background-color: #48475F;
-    color: #C4E3E5;
+    background-color: #0f231b;
+    color: #66e29e;
 }
 
 footer {
