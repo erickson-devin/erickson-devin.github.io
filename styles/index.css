@@ -7,15 +7,16 @@ body {
     margin: auto;
     font-size: 16px;
     line-height: 32px;
-    font-family: Times;
+    font-family: Verdana;
     color: #666666;
 }
 
 h1 {
     font-size: 2rem;
-    text-align: center;
+    /*text-align: center;*/
 }
 
+/*
 div #main {
   display:flex;
   flex-direction: column;
@@ -28,15 +29,16 @@ div #content img {
   align-self: center;
   margin: 10px 0 20px 0;
 }
+*/
 
 h2 {
     font-size: 2.4rem;
     text-align: center;
 }
 header{
-  display: flex;
-  justify-content: center;
-  padding: 5px;
+  /*display: flex;
+  justify-content: center;*/
+  padding: 25px;
   margin-bottom: 20px;
 }
 header, footer, footer a {
@@ -44,6 +46,10 @@ header, footer, footer a {
     background-color: #0f231b;
     color: #66e29e;
 }
+header img{
+	width: 250px;
+	height: auto;
+	float: right;
 
 footer {
     display: flex;
