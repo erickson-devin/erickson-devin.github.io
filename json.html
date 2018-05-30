@@ -1,0 +1,59 @@
+<!doctype html>
+  <html lang="en-US">
+    <head>
+      <meta charset="utf-8">
+<!--This meta tag provides control over the width and scale of the page in the browser -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>CIT 261 | Devin Erickson | JSON</title>
+      <meta name="description" content="CIT 261">
+      <link rel="stylesheet" href="styles/index.css">
+      <link rel="stylesheet" href="styles/normalize.css">
+    </head>
+
+    <body>
+    		<script type="text/javascript" src="astros.json">
+    		
+    			function setup() {
+    				
+					var spaceman = JSON.parse(data);
+					
+					document.getElementById('spaceman').innerHTML = spaceman.number;
+				}
+				
+			</script>
+			
+      <div id="header">
+        <header>
+        	<p>
+        	<img src="assets/Erickson_Fam_2017.jpg" width="200" height="auto" alt="Family Picture">
+        	</p>
+        	<h3><a href="index.html">Home</a></h3>
+            <h1>Devin Erickson</h1>
+        </header>
+      </div>
+        <nav>
+
+        </nav>
+
+        <div id="main">
+        <main>
+          <h2>CIT 261 - JSON</h2><br>
+				<h4 id="subject_title">How many people are in space right now?</h3>
+				<input type="button" value="Show Data" onclick="setup()" /><br>
+				
+				
+				
+				
+        </main>
+
+      </div> <!-- div id=main close-->
+
+      <div id="footer">
+        <footer>
+          <p> Devin Erickson &copy;2018 <br></p>
+          <p><a href="http://erickson-devin.github.io">DevinErickson.com</a></p>
+        </footer>
+      </div>
+
+    </body>
+ </html>

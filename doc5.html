@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Manipulation with JavaScript | CIT 261 Topic</title>
+    <meta name="description" content="CIT 261 CSS Manipulation with JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+
+  <body>
+   <div id="header">
+        <header>
+        	<p>
+        	<img src="assets/Erickson_Fam_2017.jpg" width="200" height="auto" alt="Family Picture">
+        	</p>
+            <h1>Devin Erickson</h1>
+        </header>
+      </div>
+        <nav>
+			<a href="index.html">Home</a>
+        </nav>
+
+    <div id="main">
+    <main>
+      <h2 class="adjustment"><strong>CSS Manipulation with JavaScript</strong></h2>
+      <section>
+        <form id="resetForm">
+        <div class="style-block">
+        <div id="example1" class="container configure"></div>
+        <label>Change Color:</label>
+        <input type="text" id="changeColor" placeholder="green, #000">
+        </div>
+
+        <div class="style-block">
+        <label>Change Opacity:</label>
+        <input type="text" id="changeOpacity" placeholder="0-1" pattern="[0-9]">
+        </div>
+
+        <div class="style-block">
+        <label>Change Width:</label>
+        <input type="text" id="changeWidth" placeholder="250px">
+        </div>
+
+        <div class="style-block">
+          <label>Change Height:</label>
+          <input type="text" id="changeHeight" placeholder="250px">
+        </div>
+
+        <div id="properties" class="style-block">
+          <div id="property1"></div>
+          <div id="property2"></div>
+          <div id="property3"></div>
+          <div id="property4"></div>
+          <div id="property5"></div>
+          <div id="property6"></div>
+          <div id="property7"></div>
+        </div>
+        </form>
+
+        <label>Use Animation? </label><input type="checkbox" onclick="changeAnimation()" id="changeAnimation">
+
+        <button type="submit" onclick="newProperty()" id="propBtn" class="buttons">More Properties</button>
+
+        <button type="submit" onclick="changeColor(); changeOpacity(); changeWidth(); changeHeight(); changeMargin(); changePadding(); changeBorder(); changeBR(); changeBS(); changeTransform()" id="submitBtn" class="buttons">SUBMIT</button>
+
+        <button type="button" onclick="resetForm()" class="buttons">RESET</button>
+
+        <div class="toggleContainer">
+          <a href="#toggleBtn" class="toggleBtn toggleSelect" id="toggleBtn" onclick="toggleBtn(); toggleBGC()">On</a>
+        </div>
+      </section>
+    </main>
+    </div> <!-- div id=main close -->
+
+   <div id="footer">
+        <footer>
+          <p> Devin Erickson &copy;2018 <br></p>
+          <p><a href="http://erickson-devin.github.io">DevinErickson.com</a></p>
+        </footer>
+      </div>
+    <script src="scripts/modernizr-custom.js"></script>
+    <script src="scripts/functions.js"></script>
+  </body>
+</html>
