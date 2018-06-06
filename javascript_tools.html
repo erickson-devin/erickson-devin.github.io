@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript | CIT 261 Topic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/index.css">
+    
+    <script>
+    	//While Loop
+		function whileCount(){
+			var i = 0;
+			while (i < 10) {
+    		document.getElementById("whileLoop").innerHTML += i + "<br>";
+    			i++;
+			}
+		}
+		//For Loop
+		function forCount(){
+			var text = "";
+			var i;
+
+			for (i = 1; i < 10; i = i + 2){
+				text += i + "<br>";
+				}
+			document.getElementById("forLoop").innerHTML = text;
+		}
+		// Switch
+		function checkFruit() {
+  			var text;
+  			var fruits = document.getElementById("fruitInput").value;
+
+ 		switch(fruits) {
+  			  case "banana":
+      			text = "Banana is yellow!";
+      			break;
+    		case "orange":
+      			text = "Don't call me mandarin.";
+      			break;
+    		case "apple":
+      			text = "How you like them apples?";
+      			break;
+
+    // add additional case here
+			default:
+      			text = "I have never heard of that fruit.";
+  			}
+  		document.getElementById("fruitSwitch").innerHTML = text;
+		}
+		
+		
+		function myFunction() {
+    		var greeting;
+    		var fruit = document.getElementById("fruitInput").value;
+    		if (fruit == "apple") {
+        		greeting = "An Apple a day keeps the doctor away.";
+    		} else if (fruit == "orange") {
+        		greeting = "Orange you glad I didn't say banana?";
+    		} else if (fruit == "banana") {
+    			greeting = "B-A-N-A-N-A-S";
+    		} else {
+        		greeting = "Did you know that you should follow the directions?";
+    		}
+		document.getElementById("fruitCondition").innerHTML = greeting;
+		}
+</script>
+  </head>
+
+  <body>
+   <div id="header">
+        <header>
+        	<p>
+        	<img src="assets/Erickson_Fam_2017.jpg" width="200" height="auto" alt="Family Picture">
+        	</p>
+            <h1>Devin Erickson</h1>
+        </header>
+      </div>
+        <nav>
+			<a href="index.html">Home</a>
+        </nav>
+
+    <div id="main">
+    <main>
+      <h2 class="adjustment"><strong>JavaScript</strong></h2>
+      <div>
+      	<h3>Loops</h3>
+      	
+      	<!-- While Loop -->
+      	<p id="whileLoop"><b><i>Count to ten super fast by clicking below.</i></b></br></p>
+      	<button type="button" onclick="whileCount()">Click Here</button>
+      	<br>
+      	
+      	<!-- For Loop -->
+      	<p id="forLoop"><b><i>Show just the odd numbers from the above list.</i></b></br></p>
+      	<button type="button" onclick="forCount()">Click Here</button>
+      	<br>
+      	<br>
+      	<hr>
+      	
+      	<!-- Switch -->
+      	<br>
+      	<h3>Switch</h3>
+      	<p>Please enter either <b>banana, orange,</b> or <b>apple</b>. Enter something else if you dare.</p>
+      	<input id="fruitInput" type="text" value="apple">
+		<button onclick="checkFruit();myFunction()">Check Fruit</button>
+		<p id="fruitSwitch"></p>
+		<br>
+		<br>
+		<hr>
+		
+		<!-- IF -->
+		<br>
+		<h3>Conditional</h3>
+		<p><i>Below you will find an "if" statement dependent on the above</i></p>
+			<!-- <button onclick="myFunction()">Try it</button> -->
+			<p id="fruitCondition"></p>
+		
+      	
+      	
+      </div>
+    
+    </main>
+    </div> <!-- div id=main close -->
+
+   <div id="footer">
+        <footer>
+          <p> Devin Erickson &copy;2018 <br></p>
+          <p><a href="http://erickson-devin.github.io">DevinErickson.com</a></p>
+        </footer>
+      </div>
+    <script src="scripts/modernizr-custom.js"></script>
+    <script src="scripts/functions.js"></script>
+  </body>
+</html>
