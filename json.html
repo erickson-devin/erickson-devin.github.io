@@ -8,19 +8,33 @@
       <meta name="description" content="CIT 261">
       <link rel="stylesheet" href="styles/index.css">
       <link rel="stylesheet" href="styles/normalize.css">
+      <link href="astros.json">
+      
+      <script>
+				
+			function findCount() {
+				var astros = new XMLHttpRequest();
+				astros.open('Get','astros.json', true);
+				
+				astros.onload = function() {
+					if(this.status == 200) {
+						var nauts = JSON.parse(this.responseText);
+						
+						var output = '';
+						
+						output += 'There are ' + nauts.number + 'astronauts in space.';
+						
+						document.getElementById('nauts').innerHTML = output;
+					}
+				}
+				astros.send();
+			}
+				
+			</script>
     </head>
 
     <body>
-    		<script type="text/javascript" src="astros.json">
     		
-    			function setup() {
-    				
-					var spaceman = JSON.parse(data);
-					
-					document.getElementById('spaceman').innerHTML = spaceman.number;
-				}
-				
-			</script>
 			
       <div id="header">
         <header>
@@ -39,7 +53,8 @@
         <main>
           <h2>CIT 261 - JSON</h2><br>
 				<h4 id="subject_title">How many people are in space right now?</h3>
-				<input type="button" value="Show Data" onclick="setup()" /><br>
+				<button id="spaceman" onclick="findCount()">Show Astronaut Count</button>
+				<br>
 				
 				
 				
