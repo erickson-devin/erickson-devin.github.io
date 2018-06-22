@@ -14,22 +14,30 @@
 				
 			function findCount() {
 				var astros = new XMLHttpRequest();
-				astros.open('Get','astros.json', true);
+				astros.open('GET','http://api.open-notify.org/astros.json', true);
 				
 				astros.onload = function() {
 					if(this.status == 200) {
 						var nauts = JSON.parse(this.responseText);
 						
-						var output = '';
+						var output, i = '';
+          					for(i in nauts.people) {
+            					output +=
+              						'<div class="nauts">' +
+              						'<h3>Name: '+nauts.people[i].name+'</h3>'+
+              						'<h5>Craft: '+nauts.people[i].craft+'</h5>'+
+              						'</div>';
+              					
+              					}
 						
-						output += 'There are ' + nauts.number + 'astronauts in space.';
-						
-						document.getElementById('nauts').innerHTML = output;
+						document.getElementById('fillInfo').innerHTML = output;
 					}
 				}
+				
 				astros.send();
 			}
-				
+			
+			
 			</script>
     </head>
 
@@ -52,9 +60,10 @@
         <div id="main">
         <main>
           <h2>CIT 261 - JSON</h2><br>
-				<h4 id="subject_title">How many people are in space right now?</h3>
-				<button id="spaceman" onclick="findCount()">Show Astronaut Count</button>
+				<h4 id="subject_title">Who is in space right now?</h3>
+				<button id="spaceman" onclick="findCount()">Show Astronauts</button>
 				<br>
+				<div id="fillInfo"></div>
 				
 				
 				
