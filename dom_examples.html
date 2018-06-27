@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DOM | CIT 261 Topic</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="scripts/main.js"></script>
+  	<script src="scripts/orbit.js"></script>
+    <style>
+
+
+    </style>
+  </head>
+
+  <body data-gr-c-s-loaded="true">
+    <header>
+      <div id="header">
+           <header>
+           	<p>
+           	<img src="assets/Erickson_Fam_2017.jpg" width="200" height="auto" alt="Family Picture">
+           	</p>
+               <h1>Devin Erickson</h1>
+               <nav>
+   			<a href="index.html">Home</a>
+           </nav>
+           </header>
+         </div>
+    </header>
+
+    <section>
+      <div class="experiment">
+        <div class="sandbox">
+        <h1>Hello World</h1></div>
+        <textarea class="code" rows="4" cols="1">
+        </textarea>
+      </div>
+      <div class="controls">
+        <div class="buttonOrganizer">
+          <img src="assets/exerc1.png">
+          <div>
+            <label>Type</label><input id="typeCreate" placeholder="h1">
+          </div>
+          <div>
+            <label>Text</label><input id="textCreate" placeholder="Hello World">
+          </div>
+          <button class="biggerButton" onclick="createEl()" type="button"> Create an Element DIV </button>
+        </div>
+      </div>
+    </section>
+     <hr>
+    <section>
+      <div class="experiment">
+        <div class="sandbox">
+          <h3> These are my paragraphs</h3>
+          <p class="mine"> A paragraph! </p>
+          <p class="yours" id="theSecond"> Another paragraph! </p>
+          <p class="yours"> And another paragraph! </p>
+          <p class="mine" id="theFourth"> And another paragraph! </p>
+          <p class="yours"> The last one paragraph! </p>
+        </div>
+        <textarea class="code" rows="7" cols="1">
+        </textarea>
+      </div>
+      <div class="controls">
+        <div class="buttonOrganizer">
+          <img src="assets/exerc2.PNG">
+          <div>
+            <label>Class Name</label><input id="inputClass" placeholder="mine"><button class="biggerButton" onclick="changeColorClass()" type="button"> Change Color by Class </button>
+          </div>
+          <div>
+            <label>ID</label><input id="inputID" placeholder="theSecond"><button class="biggerButton" onclick="changeColorID()" type="button"> Change Color by ID</button>
+          </div>
+          <div>
+            <label>Tag</label><input id="inputTag" placeholder="p"><button class="biggerButton" onclick="changeColorTag()" type="button"> Change Color by Tag</button>
+          </div>
+          <div>
+            <button onclick="reset()" type="button"> Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+      <section>
+      <div class="experiment">
+        <div class="sandbox">
+          <div class="ex3" id="grandpa">
+            <div class="ex3" id="dad">
+              <div class="ex3" id="son">
+
+              </div>
+              <div class="ex3 blink" id="daughter">
+
+              </div>
+              </div>
+              <div class="ex3" id="uncle">
+                <div class="ex3" id="baby">
+
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <textarea class="code" rows="17" cols="1">
+        </textarea>
+         </div>
+
+      <div class="controls">
+        <div class="buttonOrganizer">
+          <img src="assets/exerc3.PNG">
+          <div>
+           <button class="biggerButton" onclick="selectParent()" type="button">parentNode</button>
+           <div>
+            <button class="smallButton" onclick="selectChildren(0)" type="button">Element.children[0]</button>
+            <button class="smallButton" onclick="selectChildren(1)" type="button">Element.children[1]</button>
+          </div>
+          </div>
+          <div>
+          <button class="biggerButton" onclick="selectNextSibling()" type="button">nextElementSibling</button>
+          </div>
+          <div>
+            <button class="biggerButton" onclick="selectPreviousSibling()" type="button">previousElementSibling</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <hr>
+    <footer>
+    </footer>
+    <script>
+      const SAND_BOX = document.getElementsByClassName("sandbox");
+      const CODE = document.getElementsByClassName("code");
+      //**********************************************************
+      //Excercise 1
+      //**********************************************************
+      function createEl(){
+        var type = document.getElementById("typeCreate");
+        var input = document.getElementById("textCreate");
+
+        var el = document.createElement(type.value);
+
+        SAND_BOX[0].innerHTML="";
+
+        if(input.value!="")
+          el.innerHTML = input.value;
+        SAND_BOX[0].appendChild(el);
+
+        CODE[0].value = SAND_BOX[0].innerHTML;
+      }
+
+      function startExerc1(){
+        var h = document.createElement("h1");
+        h.innerHTML = "Hello World"
+        SAND_BOX[0].appendChild(h);
+        CODE[0].value = SAND_BOX[0].innerHTML;
+      }
+      //**********************************************************
+      //Excercise 2
+      //**********************************************************
+      var inputC = document.getElementById("inputClass");
+      var inputI = document.getElementById("inputID");
+      var inputT = document.getElementById("inputTag");
+
+      function startExerc2(){
+        CODE[1].value = SAND_BOX[1].innerHTML;
+      }
+
+      function changeColorClass(){
+        var classNameGroup = document.getElementsByClassName(inputC.value);
+
+        for(var x=0; x < classNameGroup.length; x++){
+          classNameGroup[x].style.color = "blue";
+        }
+      }
+
+      function changeColorID(){
+        var element = document.getElementById(inputI.value);
+        element.style.color = "red";
+      }
+
+       function changeColorTag(){
+        var tagNameGroup = document.getElementsByTagName(inputT.value);
+
+        for(var x=0; x < tagNameGroup.length; x++){
+          tagNameGroup[x].style.color = "green";
+        }
+      }
+
+      function reset(){
+        var tagNameGroup = document.getElementsByTagName("p");
+        var onlyH3 = document.getElementsByTagName("h3");
+
+        for(var x=0; x < tagNameGroup.length; x++){
+          tagNameGroup[x].style.color = "black";
+        }
+
+        onlyH3[0].style.color = "black";
+      }
+
+      //**********************************************************
+      //Excercise 3
+      //**********************************************************
+       function startExerc3(){
+        CODE[2].value = SAND_BOX[2].innerHTML;
+      }
+
+
+      function selectParent(){
+
+        var blink = document.getElementsByClassName("blink")[0];
+
+        if(blink.parentNode && blink.parentNode.classList.contains("ex3")){
+          blink.parentNode.classList.add("blink");
+          blink.classList.remove("blink");
+        }
+      }
+
+
+       function selectNextSibling(){
+
+          var blink = document.getElementsByClassName("blink")[0];
+
+          if(blink.nextElementSibling && blink.nextElementSibling.classList.contains("ex3")){
+            blink.nextElementSibling.classList.add("blink");
+            blink.classList.remove("blink");
+          }
+        }
+
+
+        function selectPreviousSibling(){
+
+          var blink = document.getElementsByClassName("blink")[0];
+
+          if(blink.previousElementSibling && blink.previousElementSibling.classList.contains("ex3")){
+            blink.previousElementSibling.classList.add("blink");
+            blink.classList.remove("blink");
+          }
+        }
+
+        function selectChildren(child){
+
+          var blink = document.getElementsByClassName("blink")[0];
+
+          if(blink.children.length > 0 ){
+            blink.children[child].classList.add("blink");
+            blink.classList.remove("blink");
+          }
+
+        }
+
+
+      //Call Functions
+      startExerc1();
+      startExerc2();
+      startExerc3();
+
+    </script>
+
+
+</body></html>

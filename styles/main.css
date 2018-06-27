@@ -1,0 +1,440 @@
+.sandbox {
+  float: left;
+  width: 33em;
+  min-height: 4em;
+  padding: 5px;
+  padding-left: 1em;
+  background-color: #dbdbdb;
+  margin-bottom: 1em;
+  border: .1em solid #25a1af;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.controls {
+  float: right;
+  width: 48%;
+}
+
+.controls img {
+  width: 100%;
+}
+
+.code {
+  color: #ffffff;
+  float: left;
+  clear: both;
+  background: #333333;
+  width: 40em;
+  padding: 1em;
+  padding-left: .1em;
+  overflow: hidden;
+  resize: none;
+}
+
+.buttonOrganizer {
+  width: 70%;
+  margin-bottom: 1em;
+  padding: .7em;
+}
+
+.buttonOrganizer img {
+  margin-bottom: 1em;
+}
+
+.buttonOrganizer button {
+  margin-bottom: .2em;
+}
+
+.buttonOrganizer div {
+  overflow: hidden;
+  background-color: #E8E8E8;
+  padding: .3em;
+}
+
+.smallButton {
+  width: 75%;
+  margin-left: 3em;
+}
+
+.biggerButton {
+  width: 100%;
+}
+
+.buttonOrganizer input {
+  float: right;
+  margin-left: .3em;
+  margin-bottom: .2em;
+}
+
+.buttonOrganizer label {
+  float: left;
+}
+
+.experiment {
+  float: left;
+}
+
+.experiment,
+.buttonOrganizer {
+  margin-bottom: .5em;
+  overflow: hidden;
+}
+
+section {
+  clear: both;
+  overflow: hidden;
+}
+
+hr {
+  clear: both;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#grandpa,
+#dad,
+#son,
+#daughter,
+#uncle,
+#baby {
+  padding: 1em;
+  border: 3px solid blue;
+  margin: 2px;
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    border-style: dotted;
+    border-color: red;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    border-style: dotted;
+    border-color: red;
+  }
+}
+
+body {
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#canvasBack{
+  position: absolute;
+  z-index: -1;
+  display: none;
+  border: 1px solid green;
+}
+
+.columns {
+  float: left;
+  max-width: 27em;
+  min-width: 15em;
+  min-height: 12em;
+  margin: .2em;
+  margin-left: .8em;
+  margin-top: .5em;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: background-position 2s;
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+
+#kanban {
+  min-height: 30em;
+  margin: 1em;
+  padding: .5em;
+  overflow: hidden;
+}
+
+#subject{
+  overflow: hidden;
+  padding: .5em;
+  color: white;
+  border-radius: 5px;
+  font-size: 130%;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1em;
+  background-color: rgb(49, 120, 214);
+  user-select: none;
+  border: 2px solid white;
+  box-shadow: 2px 2px rgb(29, 110, 216), -2px 2px rgb(29, 110, 216), 2px -2px rgb(29, 110, 216), -2px -2px rgb(29, 110, 216);
+  cursor: pointer;
+}
+
+.teste {
+  box-shadow: inset 11px 0px 8px -10px rgb(29, 110, 216), inset -11px 0px 8px -10px rgb(29, 110, 216);
+}
+
+.clickArea:focus{
+  filter: brightness(93%);
+}
+
+#button-create {
+  padding: .5em;
+  padding-left: 1.0em;
+  padding-right: 1.0em;
+  background-color: white;
+  width: 7em;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  overflow: hidden;
+}
+
+#button-create img {
+  float: left;
+  width: 1.5em;
+}
+
+#button-create p {
+  margin: 0;
+  float: right;
+  font-size: 120%;
+}
+
+#button-create:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.notes {
+  font-family: 'Roboto';
+  padding: .5em;
+  margin: 1em;
+  width: 10em;
+  float: left;
+  outline: 2px dashed transparent;
+}
+
+.titleN,
+.titleD,
+.titleT {
+  background-color: inherit;
+  resize: none;
+  outline: none;
+  overflow: hidden;
+  border: 0;
+  width: 100%;
+}
+
+.titleN {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2px;
+  border-bottom: 1px solid black;
+}
+
+.titleD {
+  margin-top: .5em;
+}
+
+.titleT {
+  margin-bottom: 2px;
+  border: 1px solid black;
+  width: 25%;
+  padding: 5px;
+  border-radius: 2em;
+  text-align: center;
+}
+
+.kb-title {
+  color: white;
+  font-size: 130%;
+  text-shadow: 1px 1px rgb(0, 97, 224), -1px 1px rgb(0, 97, 224), 1px -1px rgb(0, 97, 224), -1px -1px rgb(0, 97, 224);
+  padding: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  background-color: rgb(155, 199, 255);
+  box-shadow: 0px 2px 4px rgb(131, 182, 250);
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid rgb(94, 161, 250);
+  cursor: pointer;
+  letter-spacing: 0px;
+  overflow: hidden;
+}
+
+
+
+
+.kb-title:hover {
+  font-size: 130%;
+  letter-spacing: 1px;
+  transition: letter-spacing .5s, text-shadow 1s, background-color 1s;
+  background-color: rgb(106, 170, 253);
+  text-shadow: 1px 1px rgb(46, 76, 116), -1px 1px rgb(46, 76, 116), -1px -1px rgb(46, 76, 116), 1px -1px rgb(46, 76, 116);
+}
+
+.kb-notes {
+  min-height: inherit;
+  border-bottom: 2px dashed transparent;
+  border-right: 2px dashed transparent;
+  border-left: 2px dashed transparent;
+  border-color: rgb(118, 205, 255);
+  overflow: hidden;
+}
+
+.kb-notes:hover {
+  background-color: rgb(196, 233, 255);
+}
+
+.kb-title input{
+  margin-left: 1em;
+  padding-left: .5em;
+  color: white;
+  width: 45%;
+  font-size: 100%;
+  text-shadow: 1px 1px rgb(46, 76, 116);
+  border: none;
+  border-bottom: 3px solid white;
+  background-color: inherit;
+  outline: none;
+}
+
+  .zoom {
+  transition: 1s ease-in-out;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+}
+
+.no-display {
+  display: none;
+}
+
+.labelTitle {
+  pointer-events: none;
+}
+
+.labelMenuEdit, .labelMenuAdd{
+  cursor: pointer;
+  margin-right:1em;
+  margin-left:1em;
+}
+
+.labelMenuEdit:hover, .labelMenuAdd:hover {
+  color: inherit;
+  text-shadow: 1px 1px rgb(252, 139, 139), -1px 1px rgb(252, 139, 139), -1px -1px rgb(252, 139, 139), 1px -1px rgb(252, 139, 139);
+}
+
+.labelMenuEdit{
+  float:left;
+}
+
+.labelMenuAdd{
+  float:right;
+}
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  float: right;
+  width: 1.5em;
+  height: 1.5em;
+  padding: .5px;
+  border-radius: 5em;
+  text-align: center;
+  right: 0;
+  overflow: hidden;
+}
+
+.close-button:hover {
+  color: red;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.drag-point {
+  cursor: pointer;
+  float: left;
+  width: 8.6em;
+  height: 1em;
+  background-color: inherit;
+}
+
+.notes:hover {
+  /* box-shadow: 2px 2px 15px gray;
+  transform: rotate(2deg);
+  */
+  outline: 2px dashed rgb(50, 105, 189);
+}
+
+.grown-note {
+  animation: grown 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes grown {
+  from {
+    transform: scale(.9, 0.9);
+    box-shadow: 5px 5px 20px gray;
+  }
+  to {
+    box-shadow: 1px 1px 1px gray;
+  }
+}
+
+
+.drag-me {
+  position: absolute;
+  z-index: 1000;
+}
+
+.s-color-yellow {
+  background-color: #feff9c;
+  border: 1px solid #d7d885;
+  box-shadow: 1px 1px 1px #d7d885;
+}
+
+.s-color-pink {
+  background-color: #ff7eb9;
+  border: 1px solid #c7628f;
+  box-shadow: 1px 1px 1px #c7628f;
+}
+
+.s-color-blue {
+  background-color: #7afcff;
+  border: 1px solid #61cacc;
+  box-shadow: 1px 1px 1px #61cacc;
+}
+
+.s-color-dark-yellow {
+  background-color: #fff740;
+  border: 1px solid #cac333;
+  box-shadow: 1px 1px 1px #cac333;
+}
+
+#gameCanvas {
+  border: 2px solid black;
+}

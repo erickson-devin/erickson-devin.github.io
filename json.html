@@ -20,7 +20,7 @@
 					if(this.status == 200) {
 						var nauts = JSON.parse(this.responseText);
 						
-						var output, i = '';
+						var output = '';
           					for(i in nauts.people) {
             					output +=
               						'<div class="nauts">' +
