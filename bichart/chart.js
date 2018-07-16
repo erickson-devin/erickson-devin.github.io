@@ -35,6 +35,7 @@ var massPopChart = new Chart(myChart, {
 							occData[12].property,
 							occData[13].property
 						],
+            padding:1,
     datasets:[{
       label:'Current Occupancy',
       data:[
@@ -55,9 +56,20 @@ var massPopChart = new Chart(myChart, {
       			],
       //backgroundColor:'#25a1af'
       backgroundColor:[
-        '#25a1af',
-        '#dbdbdb',
-				'#25afaf'
+        '#4a4ae0', //200 Edgewood
+        '#4073c6', //Bellamy Daholonega
+				'#592a8a', //Bellamy Greenville
+        '#e31b23', //Bellamy Louisville
+        '#00aacd', //Bellamy Milledgeville
+        '#006f71', //Bellamy Coastal
+        '#46166b', //Bellamy Florence
+        '#db9f11', //HawksNest Common
+        '#cfb87c', //Lookout on Cragmor
+        'rgb(0, 51, 161)', //SQ Campus Walk
+        'rgb(219, 26, 33)', //SQ Carrollton
+        '#ffcc00', //SQ Fulton Place
+        '#ffc72c', //SQ Johnson City
+        '#003366'  //SQ Spring Garden
       ],
       borderWidth:1,
       borderColor:'#777',
@@ -73,7 +85,7 @@ var massPopChart = new Chart(myChart, {
     },
     legend:{
       display:true,
-      postion:'left',
+      postion:'bottom',
       labels:{
         fontColor:'#000'
       }
