@@ -1,0 +1,24 @@
+#top-header{
+  background-color: #25a1af;
+
+}
+#instructions{
+  color: #fff;
+  text-align: center;
+}
+#top-nav{
+  float: left;
+  text-align: left;
+  color: #fff;
+  padding-left: 25px;
+  padding-top: 15px;
+}
+body{
+  background-color: #dbdbdb;
+}
+#foot{
+  background-color: #25a1af;
+  padding: 15px;
+  color: #fff;
+
+}
