@@ -2,6 +2,12 @@
 /* Small View*/
 * { margin: 0; box-sizing: border-box; }
 
+.content {
+	margin:auto;
+	background:white;
+	padding:30px
+}
+
 body {
     max-width: 950px;
     margin: auto;
