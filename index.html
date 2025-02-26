@@ -7,14 +7,15 @@
     <meta name="description" content="CIT 261">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/index.css">
-    <script defer src="scripts/navbar.js"></script> <!-- JavaScript for shrinking navbar -->
+    <script defer src="scripts/navbar.js"></script> <!-- JavaScript for shrinking navbar and menu toggle -->
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">Devin Erickson</a>
-            <ul class="nav-links">
+            <button class="menu-toggle" id="menu-toggle">&#9776;</button> <!-- Hamburger Menu -->
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Subscribe</a></li>
                 <li><a href="#">About</a></li>
