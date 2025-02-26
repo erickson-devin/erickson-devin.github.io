@@ -35,10 +35,13 @@ body {
     text-decoration: none;
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
@@ -59,7 +62,7 @@ body {
 /* Shrinking Navbar */
 .shrink {
     padding: 10px 0;
-    background-color: rgba(34, 34, 34, 0.9); /* Slight transparency */
+    background-color: rgba(34, 34, 34, 0.9);
 }
 
 .shrink .logo {
@@ -70,10 +73,54 @@ body {
     font-size: 16px;
 }
 
-/* Content Wrapper */
+/* Responsive Navigation (Mobile-Friendly) */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #222;
+        text-align: center;
+        padding: 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+/* Content */
 .content {
     max-width: 800px;
-    margin: 100px auto 0; /* Ensure space below navbar */
+    margin: 100px auto 0;
     padding: 20px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
