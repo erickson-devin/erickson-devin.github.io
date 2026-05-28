@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { to: '/',         label: 'Home'     },
-  { to: '/about',    label: 'About'    },
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
-  { to: '/blog',     label: 'Blog'     },
+  { to: '/blog', label: 'Blog' },
 ]
 
 /**
@@ -25,7 +25,7 @@ function useScrollShrink(threshold = 50) {
 }
 
 export default function Navbar() {
-  const shrunk   = useScrollShrink()
+  const shrunk = useScrollShrink()
   const [open, setOpen] = useState(false)
 
   // Close mobile menu whenever the route changes (click on a link)

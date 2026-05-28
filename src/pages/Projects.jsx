@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import ProjectTabs, { TabPanel }     from '../components/ProjectTabs'
+import ProjectTabs, { TabPanel } from '../components/ProjectTabs'
 import { CssManipulationExperiment } from '../components/experiments/CssManipulation'
 import { JavaScriptToolsExperiment } from '../components/experiments/JavaScriptTools'
-import { JewelClickerExperiment }    from '../components/experiments/JewelClicker'
-import { UsMapVisualization }        from '../components/visualizations/UsMap'
-import { PurpleRainVisualization }   from '../components/visualizations/PurpleRain'
-import { OrbitVisualization }        from '../components/visualizations/Orbit'
+import { JewelClickerExperiment } from '../components/experiments/JewelClicker'
+import { UsMapVisualization } from '../components/visualizations/UsMap'
+import { PurpleRainVisualization } from '../components/visualizations/PurpleRain'
+import { OrbitVisualization } from '../components/visualizations/Orbit'
 
 /* ─── Shared helpers ─────────────────────────────────────── */
 
@@ -109,10 +109,10 @@ function StashGridCaseStudy() {
         <SectionDivider number={3} title="Custom Physical Kiosk Display" />
         <div className="flex flex-wrap gap-3 mb-5">
           {[
-            { label: 'Compute', value: 'Raspberry Pi 3B',          color: 'text-emerald-400' },
-            { label: 'Display', value: 'Elecrow 5" HDMI Touch',    color: 'text-violet-400'  },
-            { label: 'OS',      value: 'RPi OS Lite',              color: 'text-brand-400'   },
-            { label: 'Service', value: 'systemd unit (autostart)', color: 'text-amber-400'   },
+            { label: 'Compute', value: 'Raspberry Pi 3B', color: 'text-emerald-400' },
+            { label: 'Display', value: 'Elecrow 5" HDMI Touch', color: 'text-violet-400' },
+            { label: 'OS', value: 'RPi OS Lite', color: 'text-brand-400' },
+            { label: 'Service', value: 'systemd unit (autostart)', color: 'text-amber-400' },
           ].map(({ label, value, color }) => (
             <div key={label} className="bg-[#0f172a] border border-[#334155] rounded-xl px-4 py-3 flex flex-col gap-0.5">
               <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500">{label}</span>
