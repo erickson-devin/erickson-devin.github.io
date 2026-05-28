@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Devin Erickson | Developer Portfolio</title>
+  <script>
+    // GitHub Pages SPA redirect — preserves the path for React Router.
+    // When GitHub returns a 404 for a deep link (e.g. /projects),
+    // it serves this file instead. We encode the path into the query
+    // string and redirect to the root, where React Router picks it up.
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + l.pathname.split('/').slice(0, 1).join('/') +
+      '/?/' + l.pathname.slice(1) + (l.search ? '&' + l.search.slice(1) : '') + l.hash
+    );
+  </script>
+</head>
+<body></body>
+</html>
