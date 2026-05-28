@@ -71,7 +71,7 @@ function HeroSection() {
 
           {/* Tagline */}
           <p className="text-lg text-slate-400 leading-relaxed max-w-md">
-            Full-stack developer, tinkerer, and builder of things — from web
+            Cybersecurity Professional, tinkerer, and builder of things — from web
             apps to Raspberry Pi kiosk displays.
           </p>
 
