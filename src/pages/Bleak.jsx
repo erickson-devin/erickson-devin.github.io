@@ -286,7 +286,7 @@ function HookSection() {
           className="text-2xl sm:text-3xl font-serif font-bold mb-10"
           style={{ fontFamily: "'Cinzel', serif", color: '#c8dff5' }}
         >
-          The Logline
+          The Synopsis
         </h2>
 
         <div
@@ -466,14 +466,14 @@ const LORE_CARDS = [
   },
   {
     id: 'keepers',
-    title: 'The Tempest Keepers',
+    title: 'The Keepers',
     subtitle: 'Ancient Guardians',
     icon: '⚡',
     accent: '#c8dff5',
     glow: 'rgba(200,223,245,0.15)',
     border: 'rgba(200,223,245,0.25)',
     description:
-      'An ancient, forgotten order empowered to shape the wind into shields and blades, tasked with protecting the planet\'s balance. Bound by oath to the storms of Errvas, their bloodline carries the last hope of a shattered world.',
+      'An ancient, forgotten order empowered to shape the elements, tasked with protecting the planet\'s balance. Bound by oath to the storms of Errvas, their bloodline carries the last hope of a shattered world.',
     runes: ['✦', '⋆', '✧'],
   },
   {
@@ -593,7 +593,7 @@ const CHARACTERS = [
   {
     id: 'abel',
     name: 'Abel Corentin',
-    role: 'The Last Storm',
+    role: 'Scavenger/Keeper',
     color: '#6ea8e0',
     glow: 'rgba(74,143,209,0.3)',
     emoji: '🌪️',
@@ -620,18 +620,18 @@ const CHARACTERS = [
     glow: 'rgba(200,223,245,0.3)',
     emoji: '✦',
     description:
-      'An ancient, ethereal wind-spirit who serves as Abel\'s guide to his lost heritage. Neither fully present nor fully gone, Kari exists between breaths — the memory of Errvas given voice.',
+      'An ancient, ethereal wind-spirit who serves as Abel\'s guide to his lost heritage. Neither fully present nor fully gone, Kari exists in the space between breaths — the memory of Errvas given voice.',
     traits: ['Wind-Spirit', 'Ancient Guide', 'Ethereal Presence'],
   },
   {
     id: 'jordan',
     name: 'Jordan',
-    role: 'The Broken Blade',
+    role: 'The Broken Warrior',
     color: '#dc2626',
     glow: 'rgba(220,38,38,0.3)',
     emoji: '⚔️',
     description:
-      'A tragic warrior burdened by leadership, destined to break under the pressure of survival. Jordan\'s story is a warning written in blood: what happens when the strongest person in the room carries everyone but themselves.',
+      'A tragic warrior burdened by sudden leadership, destined to break under the pressure of survival. Jordan\'s story is a warning written in blood: what happens when the strongest person in the room carries everyone but themselves.',
     traits: ['Tragic Warrior', 'Burdened Leader', 'Destined to Break'],
   },
 ]
@@ -870,26 +870,13 @@ function NewsletterSection() {
         {/* Social icons */}
         <div className="flex justify-center gap-6 mt-14">
           {[
-            { label: 'Twitter / X', href: '#', icon: (
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636ZM17 20.25l-12-15h1.5l12 15H17Z" />
-              </svg>
-            )},
-            { label: 'Instagram', href: '#', icon: (
-              <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-            )},
-            { label: 'TikTok', href: '#', icon: (
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.82a8.18 8.18 0 004.77 1.53V6.88a4.86 4.86 0 01-1-.19z"/>
-              </svg>
-            )},
-            { label: 'Goodreads', href: '#', icon: (
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11.43 23.995c-3.608-.208-6.274-2.077-6.448-5.065h2.538c.15 1.719 1.715 2.771 3.898 2.771 2.308 0 3.867-1.236 3.867-4.22v-1.001h-.08c-.615 1.12-2.003 1.996-3.88 1.996-3.623 0-6.144-2.998-6.144-6.832 0-3.934 2.554-7.005 6.229-7.005 1.891 0 3.267.921 3.88 1.996h.08V4.84h2.463v11.822c0 4.13-2.17 7.333-6.403 7.333zm.163-8.498c2.407 0 3.836-1.929 3.836-4.684 0-2.737-1.44-4.684-3.836-4.684-2.381 0-3.82 1.927-3.82 4.684 0 2.74 1.439 4.684 3.82 4.684z"/>
-              </svg>
-            )},
+            {
+              label: 'Instagram', href: 'https://www.instagram.com/dericksonwrites/', icon: (
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              )
+            },
           ].map(social => (
             <a
               key={social.label}
@@ -915,13 +902,13 @@ function NewsletterSection() {
             {' '}— by Devin Erickson
           </p>
           <a
-            href="mailto:author@bleakthenovel.com"
+            href="mailto:devin@devinerickson.com"
             className="transition-colors hover:text-storm-300"
             style={{ color: '#4a8fd1' }}
           >
-            author@bleakthenovel.com
+            devin@devinerickson.com
           </a>
-          <p style={{ color: '#292524' }}>© 2025 All Rights Reserved</p>
+          <p style={{ color: '#292524' }}>© 2026 All Rights Reserved</p>
         </div>
       </div>
     </section>
