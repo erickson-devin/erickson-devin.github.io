@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/bleak', label: 'BLEAK ✦', special: true },
+  { to: '/dev',          label: 'Home',     end: true  },
+  { to: '/dev/about',    label: 'About',    end: false },
+  { to: '/dev/projects', label: 'Projects', end: false },
+  { to: '/dev/blog',     label: 'Blog',     end: false },
 ]
 
 /**
@@ -47,7 +46,7 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <Link
-          to="/"
+          to="/dev"
           onClick={closeMenu}
           className={[
             'font-bold tracking-tight transition-all duration-300',
@@ -60,21 +59,15 @@ export default function Navbar() {
 
         {/* ── Desktop nav links ── */}
         <ul className="hidden md:flex items-center gap-1">
-          {NAV_LINKS.map(({ to, label, special }) => (
+          {NAV_LINKS.map(({ to, label, end }) => (
             <li key={to}>
               <NavLink
                 to={to}
-                end={to === '/'}
+                end={end}
                 className={({ isActive }) =>
                   [
                     'relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200',
-                    special
-                      ? isActive
-                        ? 'text-[#9dc4ec]'
-                        : 'text-[#6ea8e0] hover:text-[#c8dff5]'
-                      : isActive
-                      ? 'text-white'
-                      : 'text-slate-400 hover:text-white',
+                    isActive ? 'text-white' : 'text-slate-400 hover:text-white',
                   ].join(' ')
                 }
               >
@@ -82,7 +75,7 @@ export default function Navbar() {
                   <>
                     {label}
                     {isActive && (
-                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${special ? 'bg-[#6ea8e0]' : 'bg-brand-400'}`} />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-400" />
                     )}
                   </>
                 )}
@@ -93,7 +86,7 @@ export default function Navbar() {
 
         {/* ── Desktop CTA ── */}
         <Link
-          to="/projects"
+          to="/dev/projects"
           className="hidden md:inline-flex btn-primary text-sm px-4 py-2"
         >
           View Work
@@ -127,20 +120,16 @@ export default function Navbar() {
         ].join(' ')}
       >
         <div className="bg-[#0f172a]/98 backdrop-blur-md border-t border-[#1e293b] px-6 py-4 flex flex-col gap-1">
-          {NAV_LINKS.map(({ to, label, special }) => (
+          {NAV_LINKS.map(({ to, label, end }) => (
             <NavLink
               key={to}
               to={to}
-              end={to === '/'}
+              end={end}
               onClick={closeMenu}
               className={({ isActive }) =>
                 [
                   'block px-4 py-3 rounded-xl text-sm font-medium transition-colors',
-                  special
-                    ? isActive
-                      ? 'bg-[#4a8fd1]/10 text-[#9dc4ec] border border-[#6ea8e0]/30'
-                      : 'text-[#6ea8e0] hover:text-[#c8dff5] hover:bg-[#4a8fd1]/5'
-                    : isActive
+                  isActive
                     ? 'bg-brand-500/15 text-brand-300 border border-brand-500/30'
                     : 'text-slate-400 hover:text-white hover:bg-white/5',
                 ].join(' ')
@@ -150,7 +139,7 @@ export default function Navbar() {
             </NavLink>
           ))}
           <Link
-            to="/projects"
+            to="/dev/projects"
             onClick={closeMenu}
             className="btn-primary mt-2 justify-center text-sm"
           >
