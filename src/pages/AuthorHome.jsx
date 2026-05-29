@@ -261,12 +261,16 @@ function HeroSection() {
 }
 
 /* ─── Section: Book Progress ─────────────────────────────────── */
+
+// ── Update this number whenever the revision phase advances ──────
+const REVISION_PROGRESS = 12 // percent (0–100)
+
 function BookProgressSection() {
   const [ref, visible] = useIntersect()
 
   const milestones = [
     { label: 'First Draft', status: 'complete', icon: '✦' },
-    { label: 'Revision & Updates', status: 'in-progress', icon: '⚡' },
+    { label: 'Revision & Updates', status: 'in-progress', icon: '⚡', progress: REVISION_PROGRESS },
     { label: 'Beta Readers', status: 'upcoming', icon: '◈' },
     { label: 'Query / Publish', status: 'upcoming', icon: '◇' },
   ]
@@ -318,65 +322,120 @@ function BookProgressSection() {
 
         {/* Progress milestones */}
         <div className="relative">
-          {/* Connecting line */}
-          <div
-            className="absolute left-[1.75rem] top-6 bottom-6 w-px hidden sm:block"
-            style={{ background: 'linear-gradient(to bottom, #2f6fb5, #1e2d3d)' }}
-          />
-
           <div className="flex flex-col gap-5">
             {milestones.map((m, i) => {
               const s = statusColors[m.status]
+              const isInProgress = m.status === 'in-progress'
+              const pct = m.progress ?? 0
+
               return (
                 <div
                   key={m.label}
-                  className="relative flex items-center gap-5 rounded-2xl px-6 py-5 transition-all duration-500"
+                  className="relative rounded-2xl overflow-hidden transition-all duration-500"
                   style={{
-                    background: s.bg,
                     border: `1px solid ${s.border}`,
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'none' : 'translateX(-20px)',
                     transitionDelay: `${i * 120}ms`,
                   }}
                 >
-                  {/* Icon node */}
+                  {/* ── Background fill layer ── */}
                   <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0 z-10"
-                    style={{
-                      background: s.bg,
-                      border: `1.5px solid ${s.color}`,
-                      color: s.color,
-                      boxShadow: m.status !== 'upcoming' ? `0 0 16px ${s.bg}` : 'none',
-                    }}
-                  >
-                    {m.icon}
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <span
-                      className="font-semibold text-sm"
-                      style={{ fontFamily: "'Cinzel', Georgia, serif", color: s.color }}
-                    >
-                      {m.label}
-                    </span>
-                    <span
-                      className="text-xs font-mono uppercase tracking-widest"
-                      style={{ color: m.status === 'upcoming' ? '#4a5568' : s.color, opacity: 0.7 }}
-                    >
-                      {m.status === 'complete' ? 'Complete' : m.status === 'in-progress' ? '● In Progress' : 'Upcoming'}
-                    </span>
-                  </div>
-                  {m.status === 'in-progress' && (
+                    aria-hidden="true"
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ background: s.bg }}
+                  />
+                  {/* Progress fill gradient — only for in-progress */}
+                  {isInProgress && (
                     <div
-                      className="ml-auto text-xs font-mono px-3 py-1 rounded-full"
+                      aria-hidden="true"
+                      className="absolute inset-0 pointer-events-none transition-all duration-[1400ms] ease-out"
                       style={{
-                        background: 'rgba(212,169,106,0.12)',
-                        border: '1px solid rgba(212,169,106,0.3)',
-                        color: '#d4a96a',
+                        background: `linear-gradient(
+                          90deg,
+                          rgba(212,169,106,0.18) 0%,
+                          rgba(212,169,106,0.10) ${pct * 0.8}%,
+                          transparent ${pct}%
+                        )`,
+                        clipPath: visible
+                          ? `inset(0 ${100 - pct}% 0 0 round 1rem)`
+                          : 'inset(0 100% 0 0 round 1rem)',
+                      }}
+                    />
+                  )}
+
+                  {/* ── Card content ── */}
+                  <div className="relative z-10 flex items-center gap-5 px-6 py-5">
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0"
+                      style={{
+                        background: s.bg,
+                        border: `1.5px solid ${s.color}`,
+                        color: s.color,
+                        boxShadow: m.status !== 'upcoming' ? `0 0 16px ${s.bg}` : 'none',
                       }}
                     >
-                      Active
+                      {m.icon}
                     </div>
-                  )}
+
+                    <div className="flex flex-col gap-1 flex-1 min-w-0">
+                      <span
+                        className="font-semibold text-sm"
+                        style={{ fontFamily: "'Cinzel', Georgia, serif", color: s.color }}
+                      >
+                        {m.label}
+                      </span>
+
+                      {isInProgress ? (
+                        <div className="flex items-center gap-2.5 mt-0.5">
+                          <div
+                            className="relative h-1.5 rounded-full overflow-hidden"
+                            style={{
+                              background: 'rgba(212,169,106,0.12)',
+                              flex: '1 1 0%',
+                              maxWidth: '240px',
+                            }}
+                          >
+                            <div
+                              className="absolute inset-y-0 left-0 rounded-full"
+                              style={{
+                                width: visible ? `${pct}%` : '0%',
+                                transition: 'width 1.4s ease-out',
+                                background: 'linear-gradient(90deg, #c49a52, #d4a96a, #e8c07a)',
+                                boxShadow: '0 0 8px rgba(212,169,106,0.55)',
+                              }}
+                            />
+                          </div>
+                          <span
+                            className="text-xs font-mono shrink-0 tabular-nums"
+                            style={{ color: '#d4a96a', opacity: 0.85 }}
+                          >
+                            {pct}%
+                          </span>
+                        </div>
+                      ) : (
+                        <span
+                          className="text-xs font-mono uppercase tracking-widest"
+                          style={{ color: m.status === 'upcoming' ? '#4a5568' : s.color, opacity: 0.7 }}
+                        >
+                          {m.status === 'complete' ? 'Complete' : 'Upcoming'}
+                        </span>
+                      )}
+                    </div>
+
+                    {isInProgress && (
+                      <div
+                        className="shrink-0 text-xs font-mono px-3 py-1 rounded-full"
+                        style={{
+                          background: 'rgba(212,169,106,0.12)',
+                          border: '1px solid rgba(212,169,106,0.3)',
+                          color: '#d4a96a',
+                        }}
+                      >
+                        Active
+                      </div>
+                    )}
+                  </div>
                 </div>
               )
             })}
