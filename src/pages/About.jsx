@@ -9,9 +9,9 @@ export default function About() {
 
         <div className="card mb-6">
           <p className="text-slate-400 leading-relaxed">
-            Hi — I&apos;m Devin Erickson, a developer based in the United States.
+            Hi — I&apos;m Devin Erickson, a cybersecurity professional based in the United States.
             I build things for the web and occasionally for hardware. When I&apos;m
-            not writing code I&apos;m probably tinkering with a Raspberry Pi or
+            not writing my book, I&apos;m probably tinkering with a Raspberry Pi or
             planning the next project on a whiteboard.
           </p>
         </div>
