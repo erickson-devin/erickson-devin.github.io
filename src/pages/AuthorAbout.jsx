@@ -86,7 +86,7 @@ function AuthorHero() {
           className="text-sm uppercase tracking-[0.2em]"
           style={{ fontFamily: "'Cinzel', Georgia, serif", color: '#d4a96a' }}
         >
-          Author · Builder · Dreamer
+          Father · Author · Nerd
         </p>
         <RuneDivider />
       </div>
@@ -165,22 +165,33 @@ function BioSection() {
           <div className="flex flex-col gap-4 text-base leading-[1.9]" style={{ color: '#a8a29e' }}>
             <p>
               Devin Erickson is an author based in the United States with a mind that never
-              quite stops building worlds. He has spent years turning a deeply personal story
-              idea — one that wouldn&apos;t leave him alone — into what is now{' '}
+              quite stops building worlds. He has spent the last few years turning a persistent idea 
+              into a reality—a story that is now{' '}
               <em style={{ color: '#c8dff5' }}>BLEAK: The Last Storm</em>.
             </p>
             <p>
-              The book began as a question: <span style={{ color: '#9dc4ec' }}>what happens to
-              the people left behind when the world doesn&apos;t end cleanly?</span> From that
-              question grew Errvas — a dying planet, an ancient order of wind-keepers, and a
-              young scavenger named Abel who discovers the weight of a heritage he never asked for.
+              The book began as a simple, haunting question: <span style={{ color: '#9dc4ec' }}>what happens to 
+              the people when the sun is shrouded by the world&apos;s atmosphere, leaving the sun barely 
+              brighter than the moon?</span> From that question grew the world of Errvas. A dying planet, 
+              an ancient order of guardians, and a young scavenger named Abel who 
+              discovers the weight of a heritage he never asked for.
             </p>
             <p>
-              Outside of writing, Devin is a cybersecurity professional and an
-              inveterate tinkerer. He builds things — software, hardware, ideas — and
-              believes that creativity in one domain always bleeds into the others. The same
-              instinct that makes him pull apart a Raspberry Pi is what drives him to pull
-              apart a plot structure until it&apos;s exactly right.
+              Devin has always been fascinated with Scandinavia. Its dramatic, unforgiving 
+              mountain ranges and breathtaking landscapes sit at the very top of his bucket list. 
+              When it came time to create the setting for his novel, the towering fjords of Norway 
+              became the direct inspiration for the wind-scoured world of{' '} 
+              <em style={{ color: '#c8dff5' }}>Bleak</em>.
+            </p>
+            <p>
+              When he isn&apos;t writing, Devin is a cybersecurity professional, an
+              inveterate tinkerer, and a father of 4 of the sweetest kids around. 
+              He builds things—software, hardware, ideas, and even entire buildings—and
+              believes that creativity in one domain always bleeds into the others. Whether he is 
+              deploying solar-powered radio nodes across the Utah valleys, coding a custom Raspberry Pi 
+              inventory system paired with a 5-inch HDMI monitor, or simply trying to outsmart the 
+              morning glory taking over his flower beds, that same analytical instinct drives him to dig 
+              into a plot thread until it&apos;s exactly right.
             </p>
           </div>
 
