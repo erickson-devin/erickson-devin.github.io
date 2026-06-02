@@ -309,22 +309,23 @@ function HookSection() {
             &ldquo;
           </span>
 
+          <p className="text-lg sm:text-xl leading-[1.9] text-ash-200 relative z-10 mb-4">
+            In a dying world scourged by endless winds and fading hope,{' '}
+              <strong className="font-semibold" style={{ color: '#c8dff5' }}>Abel Corentin</strong>{' '}
+            has spent his life scavenging the ruins of a forgotten age. But when{' '}
+              <strong className="font-semibold" style={{ color: '#9dc4ec' }}>
+            mysterious whispers lead him to an ancient relic
+              </strong>{' '}
+            buried beneath the shattered city of Veldrien, he uncovers the first clues to a lost legacy tied to the legendary{' '}
+              <strong className="font-semibold" style={{ color: '#6ea8e0' }}>Keepers of Errvas</strong>.
+          </p>
           <p className="text-lg sm:text-xl leading-[1.9] text-ash-200 relative z-10">
-            In a dying world where{' '}
-            <strong className="font-semibold" style={{ color: '#9dc4ec' }}>
-              the wind whispers with the voices of the forgotten
-            </strong>
-            , orphaned scavenger{' '}
-            <strong className="font-semibold" style={{ color: '#c8dff5' }}>Abel Corentin</strong>{' '}
-            discovers he is heir to the ancient{' '}
-            <strong className="font-semibold" style={{ color: '#6ea8e0' }}>Keepers of Errvas</strong>.
-            As he awakens the power of the tempest and uncovers the truth behind his family&apos;s
-            disappearance, Abel must fight the{' '}
-            <strong className="font-semibold" style={{ color: '#39ff14' }}>Skuggi Syndicate</strong>{' '}
-            draining his planet&apos;s core—only to learn that defeating them may{' '}
-            <strong className="font-semibold" style={{ color: '#dc2626' }}>
-              break the last seal on something far older and far worse
-            </strong>
+            As strange powers awaken within him and long-buried truths begin to surface, Abel finds himself drawn into a conflict far greater than he ever imagined. To save his people, he must challenge the{' '}
+              <strong className="font-semibold" style={{ color: '#39ff14' }}>Skuggi Syndicate</strong>
+            , a shadowy force feeding on the world&apos;s decline. But some secrets were buried for a reason, and with every answer he uncovers, Abel moves one step closer to{' '}
+              <strong className="font-semibold" style={{ color: '#dc2626' }}>
+            awakening a darkness even the Keepers feared—a darkness they were sworn to contain
+              </strong>
             .
           </p>
 
