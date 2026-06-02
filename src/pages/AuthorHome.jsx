@@ -315,7 +315,7 @@ function BookProgressSection() {
             Where We Are
           </h2>
           <p className="text-base leading-relaxed max-w-2xl mx-auto" style={{ color: '#78716c' }}>
-            Writing a book is a long storm to weather. Here&apos;s a transparent look at where{' '}
+            Writing a book is a long storm to weather. Here&apos;s a look at where{' '}
             <span style={{ color: '#9dc4ec' }}>BLEAK: The Last Storm</span> currently stands on its journey to your hands.
           </p>
         </div>
@@ -542,9 +542,9 @@ function AuthorTeaserSection() {
           </div>
 
           <p className="text-base leading-[1.9]" style={{ color: '#a8a29e' }}>
-            Devin Erickson is an author, builder, and lifelong dreamer from the United States.
+            Devin Erickson is an father, hobbyist, and lifelong dreamer from the United States.
             When a story idea about{' '}
-            <span style={{ color: '#9dc4ec' }}>a dying world, wind magic, and an alien invasion</span>{' '}
+            <span style={{ color: '#9dc4ec' }}>what the world would look like if the sun was covered to look barely brighter than the moon</span>{' '}
             wouldn&apos;t leave him alone, he sat down and started writing.{' '}
             <em style={{ color: '#c8dff5' }}>BLEAK: The Last Storm</em> is the result — a
             post-apocalyptic epic fantasy years in the making.
@@ -552,7 +552,7 @@ function AuthorTeaserSection() {
 
           <p className="text-sm leading-relaxed" style={{ color: '#78716c' }}>
             Follow along on Instagram for behind-the-scenes writing updates, lore drops,
-            and the honest chaos of bringing a world to life.
+            and peaks into the chaos of bringing a world to life for a father of 4.
           </p>
 
           <div className="flex flex-wrap gap-3 mt-1">
@@ -626,7 +626,7 @@ function MailingFooterSection() {
           style={{ color: '#4a8fd1' }}
         >
           <span className="inline-block w-6 h-px" style={{ background: '#2f6fb5' }} />
-          The Storm Approaches
+          The Storm is Approaching
           <span className="inline-block w-6 h-px" style={{ background: '#2f6fb5' }} />
         </p>
         <h2
@@ -676,7 +676,7 @@ function MailingFooterSection() {
                 boxShadow: '0 4px 15px rgba(74,143,209,0.2)',
               }}
             >
-              Join the Resistance →
+              Join the Colony →
             </button>
           </form>
         )}
