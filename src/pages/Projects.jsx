@@ -3,6 +3,7 @@ import ProjectTabs, { TabPanel } from '../components/ProjectTabs'
 import { CssManipulationExperiment } from '../components/experiments/CssManipulation'
 import { JavaScriptToolsExperiment } from '../components/experiments/JavaScriptTools'
 import { JewelClickerExperiment } from '../components/experiments/JewelClicker'
+import { SnakeGameExperiment } from '../components/experiments/SnakeGame'
 import { UsMapVisualization } from '../components/visualizations/UsMap'
 import { PurpleRainVisualization } from '../components/visualizations/PurpleRain'
 import { OrbitVisualization } from '../components/visualizations/Orbit'
@@ -180,6 +181,7 @@ function ExperimentsTab() {
       <CssManipulationExperiment />
       <JavaScriptToolsExperiment />
       <JewelClickerExperiment />
+      <SnakeGameExperiment />
     </div>
   )
 }
