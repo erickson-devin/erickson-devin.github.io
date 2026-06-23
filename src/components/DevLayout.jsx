@@ -1,17 +1,16 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
+import Footer from './Footer'
 
-/**
- * DevLayout — wraps all developer-section routes (/dev, /dev/projects, etc).
- * Injects the existing Navbar and provides the slate dark base background.
- */
 export default function DevLayout() {
   return (
-    <div className="bg-[#0f172a] text-slate-100 min-h-screen">
+    <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Navbar />
-      <main className="pt-16">
+      <main id="main-content">
         <Outlet />
       </main>
-    </div>
+      <Footer />
+    </>
   )
 }

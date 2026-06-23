@@ -7,32 +7,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Modern slate-950 dark base + indigo/violet accent system
+        /* ── Emerald accent system ─────────────────────────── */
         brand: {
-          50:  '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',   // primary indigo
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50:  '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',   /* primary emerald */
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
+          950: '#022c22',
         },
-        violet: {
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-        },
+        /* ── Surface system ────────────────────────────────── */
         surface: {
-          DEFAULT: '#0f172a', // slate-950 — main bg
-          card:    '#1e293b', // slate-800 — card bg
-          border:  '#334155', // slate-700 — borders
-          muted:   '#94a3b8', // slate-400 — muted text
+          DEFAULT: '#0a0e17',   /* deep neutral dark */
+          raised:  '#0f1520',   /* slightly lifted */
+          card:    '#131b28',   /* card background */
+          border:  '#1e2d3d',   /* subtle borders */
+          muted:   '#64748b',   /* muted text (slate-500) */
         },
-        // ── BLEAK palette ──────────────────────────────────────
+        /* ── BLEAK palette (author section) ────────────────── */
         ash: {
           50:  '#f5f5f4',
           100: '#e7e5e4',
@@ -60,13 +57,6 @@ export default {
           700: '#1a4f8a',
           glow: '#7ab8f5',
         },
-        skuggi: {
-          green:  '#39ff14',
-          dim:    '#1a7a0a',
-          dark:   '#0b2e06',
-          red:    '#dc2626',
-          crimson:'#7f1d1d',
-        },
         obsidian: {
           DEFAULT: '#080c10',
           light:   '#111820',
@@ -75,24 +65,28 @@ export default {
         },
       },
       fontFamily: {
-        sans:  ['Inter', 'system-ui', 'sans-serif'],
-        mono:  ['JetBrains Mono', 'monospace'],
-        serif: ['Cinzel', 'Georgia', 'serif'],     // BLEAK headings
+        sans:  ['Geist Sans', 'Geist', 'system-ui', '-apple-system', 'sans-serif'],
+        mono:  ['Geist Mono', 'JetBrains Mono', 'monospace'],
+        serif: ['Cinzel', 'Georgia', 'serif'],
+      },
+      transitionTimingFunction: {
+        'spring':    'cubic-bezier(0.32, 0.72, 0, 1)',
+        'spring-in': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)',
       },
       animation: {
-        'fade-up':    'fadeUp 0.6s ease both',
-        'fade-in':    'fadeIn 0.5s ease both',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4,0,0.6,1) infinite',
-        // BLEAK animations
+        'fade-up':     'fadeUp 0.7s cubic-bezier(0.32,0.72,0,1) both',
+        'fade-in':     'fadeIn 0.6s cubic-bezier(0.32,0.72,0,1) both',
+        'pulse-slow':  'pulse 4s cubic-bezier(0.4,0,0.6,1) infinite',
+        'reveal':      'reveal 0.8s cubic-bezier(0.32,0.72,0,1) both',
+        /* BLEAK animations */
         'drift':       'drift 8s ease-in-out infinite alternate',
         'drift-slow':  'drift 14s ease-in-out infinite alternate',
         'flicker':     'flicker 3s ease-in-out infinite',
         'shimmer':     'shimmer 2.5s linear infinite',
-        'rise':        'rise 1s ease both',
-        'rise-200':    'rise 1s 200ms ease both',
-        'rise-400':    'rise 1s 400ms ease both',
-        'rise-600':    'rise 1s 600ms ease both',
-        'particles':   'particles 20s linear infinite',
+        'rise':        'rise 1s cubic-bezier(0.32,0.72,0,1) both',
+        'rise-200':    'rise 1s 200ms cubic-bezier(0.32,0.72,0,1) both',
+        'rise-400':    'rise 1s 400ms cubic-bezier(0.32,0.72,0,1) both',
+        'rise-600':    'rise 1s 600ms cubic-bezier(0.32,0.72,0,1) both',
       },
       keyframes: {
         fadeUp: {
@@ -102,6 +96,10 @@ export default {
         fadeIn: {
           '0%':   { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        reveal: {
+          '0%':   { opacity: '0', transform: 'translateY(32px)', filter: 'blur(8px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
         },
         drift: {
           '0%':   { transform: 'translateY(0px) translateX(0px)' },
@@ -118,10 +116,6 @@ export default {
         rise: {
           '0%':   { opacity: '0', transform: 'translateY(40px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        particles: {
-          '0%':   { backgroundPosition: '0% 0%' },
-          '100%': { backgroundPosition: '100% 100%' },
         },
       },
     },

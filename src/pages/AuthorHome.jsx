@@ -1,19 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-
-/* ─── Google Font injection ──────────────────────────────────── */
-function useCinzelFont() {
-  useEffect(() => {
-    const id = 'cinzel-font-link'
-    if (!document.getElementById(id)) {
-      const link = document.createElement('link')
-      link.id = id
-      link.rel = 'stylesheet'
-      link.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&display=swap'
-      document.head.appendChild(link)
-    }
-  }, [])
-}
+import { IconBolt } from '../components/Icons'
 
 /* ─── Scroll-reveal hook ─────────────────────────────────────── */
 function useIntersect(options = {}) {
@@ -92,7 +79,7 @@ function HeroSection() {
   return (
     <section
       id="author-hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[100dvh] flex items-center overflow-hidden"
       style={{ background: '#080c10' }}
     >
       {/* Parallax background */}
@@ -162,7 +149,7 @@ function HeroSection() {
                 boxShadow: '0 0 20px rgba(74,143,209,0.25)',
               }}
             >
-              ⚡ Coming Soon
+              <IconBolt size={12} /> Coming Soon
             </div>
           </div>
         </div>
@@ -270,7 +257,7 @@ function BookProgressSection() {
 
   const milestones = [
     { label: 'First Draft', status: 'complete', icon: '✦' },
-    { label: 'Revision & Updates', status: 'in-progress', icon: '⚡', progress: REVISION_PROGRESS },
+    { label: 'Revision & Updates', status: 'in-progress', icon: <IconBolt size={14} />, progress: REVISION_PROGRESS },
     { label: 'Beta Readers', status: 'upcoming', icon: '◈' },
     { label: 'Query / Publish', status: 'upcoming', icon: '◇' },
   ]
@@ -704,8 +691,6 @@ function MailingFooterSection() {
 
 /* ─── Page: AuthorHome ───────────────────────────────────────── */
 export default function AuthorHome() {
-  useCinzelFont()
-
   return (
     <div style={{ background: '#080c10', color: '#d6d3d1' }} className="relative">
       <title>Devin Erickson — Author of BLEAK: The Last Storm</title>

@@ -1,19 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-
-/* ─── Font injection ─────────────────────────────────────────── */
-function useCinzelFont() {
-  useEffect(() => {
-    const id = 'cinzel-font-link'
-    if (!document.getElementById(id)) {
-      const link = document.createElement('link')
-      link.id   = id
-      link.rel  = 'stylesheet'
-      link.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap'
-      document.head.appendChild(link)
-    }
-  }, [])
-}
+import { IconWind, IconSkull, IconSpark } from '../components/Icons'
 
 /* ─── Scroll-reveal hook ─────────────────────────────────────── */
 function useIntersect(options = {}) {
@@ -242,21 +229,21 @@ function WritingPhilosophySection() {
 
   const pillars = [
     {
-      icon: '🌪️',
+      icon: <IconWind size={24} />,
       title: 'Earned Worlds',
       body: 'Every element of Errvas — its magic, its politics, its people — exists because it earns its place in the story. World-building is only meaningful when it serves the characters moving through it.',
       accent: '#6ea8e0',
       border: 'rgba(110,168,224,0.25)',
     },
     {
-      icon: '💀',
+      icon: <IconSkull size={24} />,
       title: 'Honest Darkness',
       body: 'Post-apocalyptic stories can lie about how hard survival is. BLEAK doesn\'t. The darkness is real, the cost is real — but so is the hope that keeps people moving through it.',
       accent: '#d4a96a',
       border: 'rgba(212,169,106,0.25)',
     },
     {
-      icon: '✦',
+      icon: <IconSpark size={24} />,
       title: 'Characters First',
       body: 'Plot is what characters do under pressure. If the reader doesn\'t feel Abel\'s loss, the stakes don\'t matter. The story lives or dies on whether you believe the people in it.',
       accent: '#c8dff5',
@@ -413,8 +400,6 @@ function HiddenGateway() {
 
 /* ─── Page: AuthorAbout ──────────────────────────────────────── */
 export default function AuthorAbout() {
-  useCinzelFont()
-
   return (
     <div style={{ background: '#080c10', color: '#d6d3d1' }} className="relative">
       <title>About the Author — Devin Erickson</title>

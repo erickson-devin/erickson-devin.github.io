@@ -8,27 +8,19 @@ const NAV_LINKS = [
   { to: '/dev/blog',     label: 'Blog',     end: false },
 ]
 
-/**
- * useScrollShrink — returns true when the page has scrolled past `threshold` px.
- * Mirrors the original navbar.js scroll listener logic.
- */
 function useScrollShrink(threshold = 50) {
   const [shrunk, setShrunk] = useState(false)
-
   useEffect(() => {
     const onScroll = () => setShrunk(window.scrollY > threshold)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [threshold])
-
   return shrunk
 }
 
 export default function Navbar() {
   const shrunk = useScrollShrink()
   const [open, setOpen] = useState(false)
-
-  // Close mobile menu whenever the route changes (click on a link)
   const closeMenu = () => setOpen(false)
 
   return (
@@ -36,9 +28,9 @@ export default function Navbar() {
       id="navbar"
       className={[
         'fixed top-0 left-0 right-0 z-50',
-        'transition-all duration-300 ease-in-out',
+        'transition-all duration-500 ease-spring',
         shrunk
-          ? 'py-2 bg-[#0f172a]/95 backdrop-blur-md shadow-lg shadow-black/30 border-b border-[#1e293b]'
+          ? 'py-2 bg-surface/95 backdrop-blur-md shadow-lg shadow-black/30 border-b border-surface-border'
           : 'py-5 bg-transparent',
       ].join(' ')}
     >
@@ -49,12 +41,12 @@ export default function Navbar() {
           to="/dev"
           onClick={closeMenu}
           className={[
-            'font-bold tracking-tight transition-all duration-300',
-            'bg-gradient-to-r from-brand-300 to-violet-400 bg-clip-text text-transparent',
+            'font-bold tracking-tight transition-all duration-500 ease-spring',
+            'text-white',
             shrunk ? 'text-lg' : 'text-xl',
           ].join(' ')}
         >
-          Devin Erickson
+          <span className="text-brand-400">D</span>evin Erickson
         </Link>
 
         {/* ── Desktop nav links ── */}
@@ -66,7 +58,7 @@ export default function Navbar() {
                 end={end}
                 className={({ isActive }) =>
                   [
-                    'relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200',
+                    'relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ease-spring',
                     isActive ? 'text-white' : 'text-slate-400 hover:text-white',
                   ].join(' ')
                 }
@@ -75,7 +67,7 @@ export default function Navbar() {
                   <>
                     {label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-400" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-brand-500" />
                     )}
                   </>
                 )}
@@ -89,7 +81,7 @@ export default function Navbar() {
           to="/dev/projects"
           className="hidden md:inline-flex btn-primary text-sm px-4 py-2"
         >
-          View Work
+          View work
         </Link>
 
         {/* ── Mobile hamburger button ── */}
@@ -101,12 +93,11 @@ export default function Navbar() {
           className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-lg
                      hover:bg-white/5 transition-colors"
         >
-          {/* Animated bars — morph to X when open */}
-          <span className={`block w-5 h-0.5 bg-slate-300 rounded-full transition-all duration-300 origin-center
+          <span className={`block w-5 h-0.5 bg-slate-300 rounded-full transition-all duration-300 ease-spring origin-center
             ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-slate-300 rounded-full transition-all duration-300
+          <span className={`block w-5 h-0.5 bg-slate-300 rounded-full transition-all duration-300 ease-spring
             ${open ? 'opacity-0 scale-x-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-slate-300 rounded-full transition-all duration-300 origin-center
+          <span className={`block w-5 h-0.5 bg-slate-300 rounded-full transition-all duration-300 ease-spring origin-center
             ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
@@ -115,11 +106,11 @@ export default function Navbar() {
       <div
         id="nav-links"
         className={[
-          'md:hidden overflow-hidden transition-all duration-300 ease-in-out',
+          'md:hidden overflow-hidden transition-all duration-500 ease-spring',
           open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
         ].join(' ')}
       >
-        <div className="bg-[#0f172a]/98 backdrop-blur-md border-t border-[#1e293b] px-6 py-4 flex flex-col gap-1">
+        <div className="bg-surface/98 backdrop-blur-md border-t border-surface-border px-6 py-4 flex flex-col gap-1">
           {NAV_LINKS.map(({ to, label, end }) => (
             <NavLink
               key={to}
@@ -128,9 +119,9 @@ export default function Navbar() {
               onClick={closeMenu}
               className={({ isActive }) =>
                 [
-                  'block px-4 py-3 rounded-xl text-sm font-medium transition-colors',
+                  'block px-4 py-3 rounded-xl text-sm font-medium transition-colors duration-200',
                   isActive
-                    ? 'bg-brand-500/15 text-brand-300 border border-brand-500/30'
+                    ? 'bg-brand-600/15 text-brand-300 border border-brand-600/30'
                     : 'text-slate-400 hover:text-white hover:bg-white/5',
                 ].join(' ')
               }
@@ -143,7 +134,7 @@ export default function Navbar() {
             onClick={closeMenu}
             className="btn-primary mt-2 justify-center text-sm"
           >
-            View Work
+            View work
           </Link>
         </div>
       </div>

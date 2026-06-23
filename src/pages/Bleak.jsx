@@ -1,18 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-
-/* ─── Google Font import via link injection ─────────────────── */
-function useCinzelFont() {
-  useEffect(() => {
-    const id = 'cinzel-font-link'
-    if (!document.getElementById(id)) {
-      const link = document.createElement('link')
-      link.id = id
-      link.rel = 'stylesheet'
-      link.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&display=swap'
-      document.head.appendChild(link)
-    }
-  }, [])
-}
+import {
+  IconWind, IconSkull, IconEarth, IconSword, IconBolt, IconTarget, IconSpark
+} from '../components/Icons'
 
 /* ─── useIntersect hook (scroll-reveal) ────────────────────── */
 function useIntersect(options = {}) {
@@ -110,7 +99,7 @@ function HeroSection() {
   return (
     <section
       id="bleak-hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[100dvh] flex items-center overflow-hidden"
       style={{ background: '#080c10' }}
     >
       {/* ── Parallax background image ── */}
@@ -168,7 +157,7 @@ function HeroSection() {
                 color: '#9dc4ec',
                 boxShadow: '0 0 20px rgba(74,143,209,0.3)',
               }}>
-              ⚡ Coming Soon
+              <IconBolt size={14} className="inline mr-1" /> Coming Soon
             </div>
           </div>
         </div>
@@ -389,10 +378,10 @@ function AboutSection() {
 
           <div className="mt-6 flex flex-col gap-4">
             {[
-              { icon: '🌪️', label: 'Wind Magic' },
-              { icon: '💀', label: 'Post-Apocalyptic' },
-              { icon: '👽', label: 'Alien Invasion' },
-              { icon: '⚔️', label: 'Epic Fantasy' },
+              { icon: <IconWind size={16} />, label: 'Wind Magic' },
+              { icon: <IconSkull size={16} />, label: 'Post-Apocalyptic' },
+              { icon: <IconEarth size={16} />, label: 'Alien Invasion' },
+              { icon: <IconSword size={16} />, label: 'Epic Fantasy' },
             ].map(tag => (
               <span
                 key={tag.label}
@@ -457,7 +446,7 @@ const LORE_CARDS = [
     id: 'errvas',
     title: 'Errvas',
     subtitle: 'The Dying World',
-    icon: '🌍',
+    icon: <IconEarth size={28} />,
     accent: '#6ea8e0',
     glow: 'rgba(74,143,209,0.2)',
     border: 'rgba(110,168,224,0.3)',
@@ -469,7 +458,7 @@ const LORE_CARDS = [
     id: 'keepers',
     title: 'The Keepers',
     subtitle: 'Ancient Guardians',
-    icon: '⚡',
+    icon: <IconBolt size={28} />,
     accent: '#c8dff5',
     glow: 'rgba(200,223,245,0.15)',
     border: 'rgba(200,223,245,0.25)',
@@ -481,7 +470,7 @@ const LORE_CARDS = [
     id: 'skuggi',
     title: 'The Skuggi Syndicate',
     subtitle: 'The Eternal Hunger',
-    icon: '☠',
+    icon: <IconSkull size={28} />,
     accent: '#39ff14',
     glow: 'rgba(57,255,20,0.15)',
     border: 'rgba(57,255,20,0.25)',
@@ -597,7 +586,7 @@ const CHARACTERS = [
     role: 'Scavenger/Keeper',
     color: '#6ea8e0',
     glow: 'rgba(74,143,209,0.3)',
-    emoji: '🌪️',
+    emoji: <IconWind size={24} />,
     description:
       'A reluctant scavenger who discovers his bloodline holds the power of the wind. Haunted by loss and driven by truth, Abel must choose between the safety of ignorance and the storm that is his birthright.',
     traits: ['Reluctant Hero', 'Wind-Keeper', 'Orphan Scavenger'],
@@ -608,7 +597,7 @@ const CHARACTERS = [
     role: 'Olsborg\'s Anchor',
     color: '#d4a96a',
     glow: 'rgba(212,169,106,0.3)',
-    emoji: '🏹',
+    emoji: <IconTarget size={24} />,
     description:
       'An archer and the emotional anchor of Olsborg, whose fierce hope pushes back against the bleakness. Eleanor\'s strength isn\'t in what she fights — it\'s in what she refuses to give up on.',
     traits: ['Master Archer', 'Fierce Hope', 'Colony Guardian'],
@@ -619,7 +608,7 @@ const CHARACTERS = [
     role: 'Voice of the Wind',
     color: '#c8dff5',
     glow: 'rgba(200,223,245,0.3)',
-    emoji: '✦',
+    emoji: <IconSpark size={24} />,
     description:
       'An ancient, ethereal wind-spirit who serves as Abel\'s guide to his lost heritage. Neither fully present nor fully gone, Kari exists in the space between breaths — the memory of Errvas given voice.',
     traits: ['Wind-Spirit', 'Ancient Guide', 'Ethereal Presence'],
@@ -630,7 +619,7 @@ const CHARACTERS = [
     role: 'The Broken Warrior',
     color: '#dc2626',
     glow: 'rgba(220,38,38,0.3)',
-    emoji: '⚔️',
+    emoji: <IconSword size={24} />,
     description:
       'A tragic warrior burdened by sudden leadership, destined to break under the pressure of survival. Jordan\'s story is a warning written in blood: what happens when the strongest person in the room carries everyone but themselves.',
     traits: ['Tragic Warrior', 'Burdened Leader', 'Destined to Break'],
@@ -916,15 +905,10 @@ function NewsletterSection() {
   )
 }
 
-/* ─── Page: Bleak ─────────────────────────────────────────────── */
+/* ─── Page: Bleak ────────────────────────────────────────────── */
 export default function Bleak() {
-  useCinzelFont()
-
   return (
-    <div
-      style={{ background: '#080c10', color: '#d6d3d1' }}
-      className="relative"
-    >
+    <div style={{ background: '#080c10', color: '#d6d3d1' }} className="relative">
       {/* Page SEO */}
       <title>BLEAK: The Last Storm — Epic Post-Apocalyptic Fantasy Novel</title>
       <meta
