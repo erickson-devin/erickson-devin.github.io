@@ -221,7 +221,7 @@ function HeroSection() {
               Explore the World
             </Link>
             <a
-              href="/book#bleak-newsletter"
+              href="https://forms.gle/1iutuBPuybrk81K99"
               id="hero-cta-mailing"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-1"
               style={{
@@ -589,9 +589,9 @@ function MailingFooterSection() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // Open the Google Form in a new tab
-    window.open('https://forms.gle/4uNuPVH7MpS4Bh96A', '_blank')
+    if (!email.includes('@')) { setStatus('error'); return }
     setStatus('sent')
+    setEmail('')
   }
 
   return (
@@ -635,14 +635,27 @@ function MailingFooterSection() {
             <p className="text-[#9dc4ec]" style={{ fontFamily: "'Cinzel', Georgia, serif" }}>
               ✦ The wind has heard you. ✦
             </p>
-            <p className="text-xs text-[#78716c] mt-2">Finish signing up on the Google Form that just opened!</p>
+            <p className="text-xs text-[#78716c] mt-2">You&apos;ll be among the first to know when the storm breaks.</p>
           </div>
         ) : (
-          <div className="flex justify-center">
+          <form id="home-newsletter-form" onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center">
+            <input
+              id="home-email-input"
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              className="flex-1 max-w-xs px-5 py-3.5 rounded-xl text-sm font-mono outline-none transition-all duration-300"
+              style={{
+                background: 'rgba(22,30,40,0.8)',
+                border: `1px solid ${status === 'error' ? '#dc2626' : 'rgba(110,168,224,0.25)'}`,
+                color: '#c8dff5',
+              }}
+            />
             <button
-              onClick={handleSubmit}
               id="home-newsletter-submit"
-              className="px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+              type="submit"
+              className="px-6 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
               style={{
                 fontFamily: "'Cinzel', Georgia, serif",
                 background: 'linear-gradient(135deg, #2f6fb5, #4a8fd1)',
@@ -650,9 +663,12 @@ function MailingFooterSection() {
                 boxShadow: '0 4px 15px rgba(74,143,209,0.2)',
               }}
             >
-              Join the Colony (Opens Form) →
+              Join the Colony →
             </button>
-          </div>
+          </form>
+        )}
+        {status === 'error' && (
+          <p className="mt-2 text-xs text-red-400 font-mono">Please enter a valid email address.</p>
         )}
 
         {/* Footer line */}
