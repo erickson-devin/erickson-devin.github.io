@@ -414,7 +414,7 @@ function BookProgressSection() {
                       <div
                         className="shrink-0 text-xs font-mono px-3 py-1 rounded-full"
                         style={{
-                          background: 'rgba(212,169,106,0.20)',
+                          background: 'rgba(212,169,106,0.12)',
                           border: '1px solid rgba(212,169,106,0.3)',
                           color: '#d4a96a',
                         }}
