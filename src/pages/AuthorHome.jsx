@@ -149,7 +149,7 @@ function HeroSection() {
                 boxShadow: '0 0 20px rgba(74,143,209,0.25)',
               }}
             >
-              <IconBolt size={12} /> Coming Soon
+              <IconBolt size={20} /> Coming Soon
             </div>
           </div>
         </div>
