@@ -149,7 +149,7 @@ function HeroSection() {
                 boxShadow: '0 0 20px rgba(74,143,209,0.25)',
               }}
             >
-              <IconBolt size={20} /> Coming Soon
+              <IconBolt size={12} /> Coming Soon
             </div>
           </div>
         </div>
@@ -250,7 +250,7 @@ function HeroSection() {
 /* ─── Section: Book Progress ─────────────────────────────────── */
 
 // ── Update this number whenever the revision phase advances ──────
-const REVISION_PROGRESS = 12 // percent (0–100)
+const REVISION_PROGRESS = 20 // percent (0–100)
 
 function BookProgressSection() {
   const [ref, visible] = useIntersect()
