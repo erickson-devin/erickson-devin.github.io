@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import {
   IconWind, IconSkull, IconEarth, IconSword, IconBolt, IconTarget, IconSpark
 } from '../components/Icons'
+import CoverPlaceholder from '../components/CoverPlaceholder'
+import { NEWSLETTER_FORM_URL } from '../config'
 
 /* ─── useIntersect hook (scroll-reveal) ────────────────────── */
 function useIntersect(options = {}) {
@@ -133,33 +135,7 @@ function HeroSection() {
 
         {/* ── Book Cover ── */}
         <div className="flex justify-center lg:justify-end order-first lg:order-last animate-fade-in">
-          <div className="relative">
-            {/* Glow behind cover */}
-            <div
-              className="absolute -inset-8 rounded-2xl blur-3xl opacity-40"
-              style={{ background: 'radial-gradient(ellipse, #4a8fd1 0%, #39ff14 50%, transparent 80%)' }}
-            />
-            <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/70 border border-storm-700/40"
-              style={{ width: 280, height: 420 }}>
-              <img
-                src="/assets/bleak_book_cover.png"
-                alt="BLEAK: The Last Storm book cover"
-                className="w-full h-full object-cover"
-              />
-              {/* Shine overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
-            </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl border text-xs font-mono font-semibold"
-              style={{
-                background: 'rgba(8,12,16,0.95)',
-                borderColor: '#6ea8e0',
-                color: '#9dc4ec',
-                boxShadow: '0 0 20px rgba(74,143,209,0.3)',
-              }}>
-              <IconBolt size={14} className="inline mr-1" /> Coming Soon
-            </div>
-          </div>
+          <CoverPlaceholder width={280} height={420} />
         </div>
 
         {/* ── Title & CTA ── */}
@@ -218,11 +194,11 @@ function HeroSection() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
               </svg>
-              Read the First Chapter
+              Read the Synopsis
             </a>
             <a
               href="#bleak-newsletter"
-              id="bleak-cta-preorder"
+              id="bleak-cta-notify"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-1"
               style={{
                 border: '1.5px solid #6ea8e0',
@@ -230,7 +206,7 @@ function HeroSection() {
                 background: 'rgba(74,143,209,0.08)',
               }}
             >
-              Pre-Order Now →
+              Get Notified →
             </a>
           </div>
         </div>
@@ -766,15 +742,7 @@ function CharacterSection() {
 
 /* ─── Section: Newsletter / Footer ──────────────────────────── */
 function NewsletterSection() {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState(null) // null | 'sent' | 'error'
   const [ref, visible] = useIntersect()
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    window.open('https://forms.gle/4uNuPVH7MpS4Bh96A', '_blank')
-    setStatus('sent')
-  }
 
   return (
     <section
@@ -809,23 +777,11 @@ function NewsletterSection() {
           <span style={{ color: '#9dc4ec' }}>The storm is coming — be ready.</span>
         </p>
 
-        {status === 'sent' ? (
-          <div
-            className="py-6 px-8 rounded-2xl text-center"
-            style={{
-              background: 'rgba(74,143,209,0.1)',
-              border: '1px solid rgba(110,168,224,0.3)',
-            }}
-          >
-            <p className="text-storm-300 font-serif text-lg" style={{ fontFamily: "'Cinzel', serif" }}>
-              ✦ The wind has heard you. ✦
-            </p>
-            <p className="text-sm text-ash-400 mt-2">Finish signing up on the Google Form that just opened!</p>
-          </div>
-        ) : (
-          <div className="flex justify-center">
-            <button
-              onClick={handleSubmit}
+        <div className="flex flex-col items-center">
+            <a
+              href={NEWSLETTER_FORM_URL}
+              target="_blank"
+              rel="noreferrer"
               id="bleak-newsletter-submit"
               className="px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(74,143,209,0.4)] whitespace-nowrap"
               style={{
@@ -834,10 +790,10 @@ function NewsletterSection() {
                 boxShadow: '0 4px 15px rgba(74,143,209,0.25)',
               }}
             >
-              Join the Resistance (Opens Form) →
-            </button>
-          </div>
-        )}
+              Join the Resistance →
+            </a>
+            <p className="mt-3 text-xs text-ash-500">Opens a short sign-up form in a new tab.</p>
+        </div>
 
         {/* Social icons */}
         <div className="flex justify-center gap-6 mt-14">
@@ -895,7 +851,7 @@ export default function Bleak() {
       <title>BLEAK: The Last Storm — Epic Post-Apocalyptic Fantasy Novel</title>
       <meta
         name="description"
-        content="In a dying world where the wind whispers with the voices of the forgotten, orphaned scavenger Abel Corentin discovers he is heir to the ancient Keepers of Errvas. Pre-order BLEAK: The Last Storm."
+        content="In a dying world where the wind whispers with the voices of the forgotten, orphaned scavenger Abel Corentin discovers he is heir to the ancient Keepers of Errvas. Sign up for BLEAK: The Last Storm release updates."
       />
 
       <HeroSection />

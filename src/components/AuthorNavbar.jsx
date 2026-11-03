@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { NEWSLETTER_FORM_URL } from '../config'
 
 const AUTHOR_NAV_LINKS = [
   { to: '/',       label: 'Home',             end: true },
@@ -86,7 +87,9 @@ export default function AuthorNavbar() {
 
         {/* ── Desktop CTA ── */}
         <a
-          href="#bleak-newsletter"
+          href={NEWSLETTER_FORM_URL}
+          target="_blank"
+          rel="noreferrer"
           id="author-nav-cta"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(74,143,209,0.4)]"
           style={{
@@ -95,13 +98,6 @@ export default function AuthorNavbar() {
             background: 'linear-gradient(135deg, #2f6fb5, #4a8fd1)',
             color: '#fff',
             boxShadow: '0 4px 15px rgba(74,143,209,0.25)',
-          }}
-          onClick={(e) => {
-            // If not on the book page, navigate there first
-            if (!window.location.pathname.includes('/book')) {
-              e.preventDefault()
-              window.location.href = '/book#bleak-newsletter'
-            }
           }}
         >
           Join the Resistance
@@ -161,7 +157,9 @@ export default function AuthorNavbar() {
             </NavLink>
           ))}
           <a
-            href="/book#bleak-newsletter"
+            href={NEWSLETTER_FORM_URL}
+            target="_blank"
+            rel="noreferrer"
             onClick={closeMenu}
             className="mt-2 px-4 py-3 rounded-xl text-sm font-semibold text-center transition-all duration-300"
             style={{

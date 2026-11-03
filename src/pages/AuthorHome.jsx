@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { IconBolt } from '../components/Icons'
+import CoverPlaceholder from '../components/CoverPlaceholder'
+import { NEWSLETTER_FORM_URL } from '../config'
 
 /* ─── Scroll-reveal hook ─────────────────────────────────────── */
 function useIntersect(options = {}) {
@@ -113,45 +115,7 @@ function HeroSection() {
 
         {/* ── Book cover ── */}
         <div className="flex justify-center lg:justify-end order-first lg:order-last animate-fade-in">
-          <div className="relative">
-            <div
-              className="absolute -inset-8 rounded-2xl blur-3xl opacity-35"
-              style={{ background: 'radial-gradient(ellipse, #4a8fd1 0%, #1a4f8a 60%, transparent 80%)' }}
-            />
-            <div
-              className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/70 border border-[#1e2d3d]"
-              style={{ width: 260, height: 390 }}
-            >
-              {/* Placeholder — author will add real cover art */}
-              <div
-                className="w-full h-full flex flex-col items-center justify-center gap-4"
-                style={{ background: 'linear-gradient(160deg, #0a1520 0%, #080c10 100%)', border: '1px solid rgba(110,168,224,0.15)' }}
-              >
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2f6fb5" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.5">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                </svg>
-                <span
-                  className="text-xs font-mono uppercase tracking-widest"
-                  style={{ color: '#4a8fd1', opacity: 0.5 }}
-                >
-                  Cover Art Coming Soon
-                </span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
-            </div>
-            {/* Floating badge */}
-            <div
-              className="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl border text-xs font-mono font-semibold"
-              style={{
-                background: 'rgba(8,12,16,0.95)',
-                borderColor: '#4a8fd1',
-                color: '#9dc4ec',
-                boxShadow: '0 0 20px rgba(74,143,209,0.25)',
-              }}
-            >
-              <IconBolt size={12} /> Coming Soon
-            </div>
-          </div>
+          <CoverPlaceholder />
         </div>
 
         {/* ── Title & CTAs ── */}
@@ -221,7 +185,9 @@ function HeroSection() {
               Explore the World
             </Link>
             <a
-              href="https://forms.gle/1iutuBPuybrk81K99"
+              href={NEWSLETTER_FORM_URL}
+              target="_blank"
+              rel="noreferrer"
               id="hero-cta-mailing"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-1"
               style={{
@@ -232,7 +198,7 @@ function HeroSection() {
                 background: 'rgba(74,143,209,0.07)',
               }}
             >
-              Stay in the Storm →
+              Join the Resistance →
             </a>
           </div>
         </div>
@@ -529,7 +495,7 @@ function AuthorTeaserSection() {
           </div>
 
           <p className="text-base leading-[1.9]" style={{ color: '#a8a29e' }}>
-            Devin Erickson is an father, hobbyist, and lifelong dreamer from the United States.
+            Devin Erickson is a father, hobbyist, and lifelong dreamer from the United States.
             When a story idea about{' '}
             <span style={{ color: '#9dc4ec' }}>what the world would look like if the sun was covered to look barely brighter than the moon</span>{' '}
             wouldn&apos;t leave him alone, he sat down and started writing.{' '}
@@ -539,7 +505,7 @@ function AuthorTeaserSection() {
 
           <p className="text-sm leading-relaxed" style={{ color: '#78716c' }}>
             Follow along on Instagram for behind-the-scenes writing updates, lore drops,
-            and peaks into the chaos of bringing a world to life for a father of 4.
+            and peeks into the chaos of bringing a world to life for a father of 4.
           </p>
 
           <div className="flex flex-wrap gap-3 mt-1">
@@ -584,15 +550,6 @@ function AuthorTeaserSection() {
 /* ─── Section: Mailing List Footer ──────────────────────────── */
 function MailingFooterSection() {
   const [ref, visible] = useIntersect()
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState(null)
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    if (!email.includes('@')) { setStatus('error'); return }
-    setStatus('sent')
-    setEmail('')
-  }
 
   return (
     <section
@@ -627,49 +584,22 @@ function MailingFooterSection() {
           <span style={{ color: '#6ea8e0' }}>No spam — just the storm.</span>
         </p>
 
-        {status === 'sent' ? (
-          <div
-            className="py-5 px-8 rounded-2xl"
-            style={{ background: 'rgba(74,143,209,0.08)', border: '1px solid rgba(110,168,224,0.25)' }}
-          >
-            <p className="text-[#9dc4ec]" style={{ fontFamily: "'Cinzel', Georgia, serif" }}>
-              ✦ The wind has heard you. ✦
-            </p>
-            <p className="text-xs text-[#78716c] mt-2">You&apos;ll be among the first to know when the storm breaks.</p>
-          </div>
-        ) : (
-          <form id="home-newsletter-form" onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center">
-            <input
-              id="home-email-input"
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              className="flex-1 max-w-xs px-5 py-3.5 rounded-xl text-sm font-mono outline-none transition-all duration-300"
-              style={{
-                background: 'rgba(22,30,40,0.8)',
-                border: `1px solid ${status === 'error' ? '#dc2626' : 'rgba(110,168,224,0.25)'}`,
-                color: '#c8dff5',
-              }}
-            />
-            <button
-              id="home-newsletter-submit"
-              type="submit"
-              className="px-6 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
-              style={{
-                fontFamily: "'Cinzel', Georgia, serif",
-                background: 'linear-gradient(135deg, #2f6fb5, #4a8fd1)',
-                color: '#fff',
-                boxShadow: '0 4px 15px rgba(74,143,209,0.2)',
-              }}
-            >
-              Join the Colony →
-            </button>
-          </form>
-        )}
-        {status === 'error' && (
-          <p className="mt-2 text-xs text-red-400 font-mono">Please enter a valid email address.</p>
-        )}
+        <a
+          href={NEWSLETTER_FORM_URL}
+          target="_blank"
+          rel="noreferrer"
+          id="home-newsletter-submit"
+          className="inline-flex px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+          style={{
+            fontFamily: "'Cinzel', Georgia, serif",
+            background: 'linear-gradient(135deg, #2f6fb5, #4a8fd1)',
+            color: '#fff',
+            boxShadow: '0 4px 15px rgba(74,143,209,0.2)',
+          }}
+        >
+          Join the Resistance →
+        </a>
+        <p className="mt-3 text-xs" style={{ color: '#57534e' }}>Opens a short sign-up form in a new tab.</p>
 
         {/* Footer line */}
         <div
