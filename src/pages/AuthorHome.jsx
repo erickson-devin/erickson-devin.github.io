@@ -216,7 +216,7 @@ function HeroSection() {
 /* ─── Section: Book Progress ─────────────────────────────────── */
 
 // ── Update this number whenever the revision phase advances ──────
-const REVISION_PROGRESS = 20 // percent (0–100)
+const REVISION_PROGRESS = 42 // percent (0–100)
 
 function BookProgressSection() {
   const [ref, visible] = useIntersect()
